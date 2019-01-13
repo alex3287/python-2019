@@ -1,5 +1,12 @@
-f = ['sdf','sadf','a','f','t']
-h = [1,2,3,4,5]
+import heapq
+def longest_consec(strarr, k):
+    if k > 0:
+        temp = [len(i) for i in strarr]
+        finder = heapq.nlargest(k, temp)
+        result = [strarr[temp.index(i)] for i in finder]
+        print(result)
+    return ''.join(result)
 
-for i,j in zip(f,h):
-    print(i,j)
+A = ["zone", "abigail", "theta", "form", "libe", "zas"]
+print(longest_consec(A,2))
+
