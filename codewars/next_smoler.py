@@ -1,3 +1,9 @@
+def swap(dig,B):
+    if min(B) == B[-1]:
+        return dig, B
+    dig, B[B.index(min(B))] = B[B.index(min(B))], dig
+    return dig, B
+            
 def check(digit,A):
     for i in A:
         if digit > i and i != '0':
@@ -16,32 +22,26 @@ def next_smaller(n):
     A=A[:-1]
     while A:
         if A[-1] > min(B) and not(len(A)==1 and check(A[-1],B)):
+            buf = min(B)
+            B.remove(min(B))
+            B+=A[-1]
+            A=A[:-1]
             break
         B.append(A[-1])
         A=A[:-1]
     else:
         return -1
-    if len(A) > 1 and len(B) > 1:
-        if min(B)=='0' and check(A[-1],B):
-            B[B.index(min(B))],B[0] = B[0],B[B.index(min(B))]
-            if (B[0]=='0' or B[1] == '0') and not(check(B[0],B)):
-                B = sorted(B,reverse=True)
-        res = ('').join(A[:-1])+B[0]+A[-1]+('').join(B[1:])
-        result = int(res)
-        return result
-    if len(A) == 1 and len(B)>1 or A[-1] == max(B):
-        for i in range(len(B)):
-            if A[-1] > B[i] and B[i] != '0':
-                A[-1],B[i] = B[i],A[-1]
-                break
-        else:
-            return -1
-        res = ('').join(A[:])+('').join(B[:])
-        result = int(res)
-        return result
-    res = ('').join(A[:-1])+B[0]+A[-1]
+    
+    if buf =='0':
+        buf, B = swap(buf,B)
+    B.sort(reverse=1)
+    res = ('').join(A)+buf+('').join(B)
     result = int(res)
-    return result
+    return result 
     
 if __name__ == '__main__':
-    print(next_smaller(1207))
+    next_smaller(513)
+    next_smaller(1207)
+    B=['5','3','8','6','1','0','5']
+    B.sort(reverse=1)
+    print(B)

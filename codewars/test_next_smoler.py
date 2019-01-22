@@ -35,6 +35,14 @@ class MyTestCase(unittest.TestCase):
     def test_elevnth(self):
         result = next_smaller(1207)
         self.assertEqual(result, 1072)
+    def test_twelvth(self):
+        result = next_smaller(1414)
+        self.assertEqual(result, 1144)
+    def test_threteenth(self):
+        result = next_smaller(2759)
+        self.assertEqual(result, 2597)
+    def test_fourteenth(self):
+        self.assertEqual(next_smaller(513), 351)
 
 
 if __name__ == '__main__':
