@@ -5,6 +5,9 @@ class MyTestCase(unittest.TestCase):
     def test_first(self):
         result = next_smaller(20099)
         self.assertEqual(result, -1)
+        self.assertEqual(next_smaller(222), -1)
+        self.assertEqual(next_smaller(99), -1)
+        self.assertEqual(next_smaller(555555), -1)
     def test_second(self):
         result = next_smaller(12345)
         self.assertEqual(result, -1) 
@@ -43,6 +46,10 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(result, 2597)
     def test_fourteenth(self):
         self.assertEqual(next_smaller(513), 351)
+    def test_fifteenth(self):
+        self.assertEqual(next_smaller(52682568), 52668852)
+        self.assertEqual(next_smaller(2219712279), 2219297721)
+        
 
 
 if __name__ == '__main__':
