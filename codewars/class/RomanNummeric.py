@@ -1,22 +1,35 @@
 class RomanNumerals(object):
 
     def to_roman(self, number):
-        def translate(digit,k):
-            #SS = {1: 'I', 2: 'II', 3: 'III', 4: 'IV', 5: 'V', 6: 'VI', 7: 'VII', 8: 'VIII', 9: 'IX', 10: 'X', 50: 'L',
-             #     100: 'C', 500: 'D', 1000: 'M'}
-            S1 = 'IVX'
-            S2 = 'XLC'
-            S3 = 'CDM'
-
-
+        S = ('IVX','XLC','CDM')
+        def translate(digit, k):
+            result=''
+            if k > 2:
+                for i in range(digit):
+                    result += 'M'
+                return result
+            if digit < 4:
+                for i in range(digit):
+                    result += S[k][0]
+            elif digit == 4:
+                result += S[k][:2]
+            elif digit == 5:
+                result += S[k][1]
+            elif 5 < digit < 9:
+                result += S[k][1] + translate(digit-5, k)
+            elif digit == 0:
+                pass
+            else:
+                result +=S[k][0]+S[k][2]
+            return result
         roman = ''
-        k=1
+        k=0
         while number:
             digit = number % 10
             if digit > 0:
                 roman =translate(digit,k) + roman
             number //= 10
-            k*=10
+            k += 1
         return roman
 
 
