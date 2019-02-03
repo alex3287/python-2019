@@ -8,7 +8,7 @@ def balanced_parens(n):
         if i % 2 == 0:
             s1[i]
 
-            s3 =
+            s3 = 7
             if s3 not in A:
                 A.append(s3)
 
