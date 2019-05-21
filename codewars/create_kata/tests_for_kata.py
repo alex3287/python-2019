@@ -1,5 +1,6 @@
 #тут описание ката, а ниже его тесты
-Description:
+
+'''Description:
 Write a function that takes a positive integer and returns the next smaller positive integer containing the same digits.
 
 For example:
@@ -86,3 +87,4 @@ def rndom():
         #print(n-expected)
         
         test.assert_equals(next_smaller(n), expected)
+'''

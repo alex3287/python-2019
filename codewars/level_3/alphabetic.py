@@ -1,8 +1,19 @@
 def variants(word):
     n = len(word)
-    a = len(set(word))
-    result = a ** n
-    return result
+    sample = sorted(word)
+    return sample
+    A = list(word)
+    if A == sample:
+        return 1
+    count = 0
+    for i in range(n-1):
+        for j in range(n-1, i, -1):
+            if A[j] < A[j-1]:
+                A[j], A[j-1] = A[j-1], A[j]
+                count += 1
+                if A == sample:
+                    return count+1
+    return sample
 
 def listPosition(word):
     if len(word) < 2:
@@ -10,4 +21,5 @@ def listPosition(word):
     return variants(word)
 
 
-print(listPosition('1234567890QWERTASDFGZXCVB'))
+print(listPosition('QUESTION'))
+

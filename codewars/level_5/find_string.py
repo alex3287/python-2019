@@ -23,5 +23,5 @@ def find_uniq(arr):
     return find
 
 if __name__ == "__main__":
-    s =['aSdfA ','rty','aasdf','asdf']
+    s = ['aSdfA ','rty','aasdf','asdf']
     print(find_uniq(s))
