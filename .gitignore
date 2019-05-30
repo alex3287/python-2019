@@ -1,3 +1,4 @@
 #не комитеть файлы проекта PyCharm .idea
 .idea/
 .DS_Store
+__pycache__*
