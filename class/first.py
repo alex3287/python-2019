@@ -13,3 +13,4 @@ if __name__ == '__main__':
     test = Fraction(45, 5)
     test.show()
     print(test)
+

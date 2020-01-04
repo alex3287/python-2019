@@ -1,13 +1,13 @@
 from random import randint as rnd, choice
 
-def sort(A):
+def quick_sort(A):
     if len(A) < 2:
         return A
     item = choice(A)
     L = [i for i in A if i < item]
     M = [i for i in A if i == item]
     R = [i for i in A if i > item]
-    return sort(L) + M + sort(R)
+    return quick_sort(L) + M + quick_sort(R)
 
 
 

@@ -10,3 +10,4 @@ def maxi(num):
 
 number = int(input('-> '))
 print(maxi(number))
+
