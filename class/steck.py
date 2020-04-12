@@ -5,11 +5,13 @@ class Stack:
     def __str__(self):
         s = ''
         for i in self.items:
-            s += str(i)+' '
+            s += str(i) + ' '
         return s if s else '*'
+
     def isEmpty(self):
-        return self.items==[]
-    def push(self,item):
+        return self.items == []
+
+    def push(self, item):
         self.items.append(item)
 
     def pop(self):
@@ -20,6 +22,7 @@ class Stack:
 
     def size(self):
         return len(self.items)
+
 
 test = Stack()
 test.push(56)

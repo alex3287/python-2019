@@ -34,28 +34,31 @@ class Warrior():
     def battle(self, level):
         if level > 100 or level < 1:
             return 'Invalid level'
-        if level - self.level > 4 and level // 10 - self.level // 10 > 1:
-            return "You've been defeated"
         if self.level == level:
             self.experience = self.getExperience(10)
-        elif self.level - level == 1:
-            self.experience = self.getExperience(5)
-        elif abs(self.level - level) == 2:
-            pass
+        elif self.level > level:
+            if self.level - level == 1:
+                self.experience = self.getExperience(5)
+            elif self.level - level >= 2:
+                self.experience = self.getExperience(0)
         else:
-            diff = level - self.level
-            k = 20 * diff * diff
-            self.experience = self.getExperience(k)
+            if level - self.level > 4 and level // 10 - self.level // 10 > 0 or level // 10 - self.level // 10 > 0:
+                return "You've been defeated"
+            else:
+                diff = level - self.level
+                k = 20 * diff * diff
+                self.experience = self.getExperience(k)
+        if self.level == level or self.level == level + 1:
+            result = 'A good fight'
+        elif self.level - level >= 2:
+            result = 'Easy fight'
+        else:
+            result = 'An intense fight'
 
         self.level = self.experience // 100
         self.rank = self.getRank()
+        return result
 
-        if self.level == level or self.level == level + 1:
-            return 'A good fight'
-        elif self.level - level >= 2:
-            return 'Easy fight'
-        else:
-            return 'An intense fight'
 
 if __name__ == '__main__':
     test = Warrior()
@@ -63,11 +66,24 @@ if __name__ == '__main__':
     print(test.experience)
     print(test.rank)
     print(test.achievements)
-    test.training(["Defeated Chuck Norris", 9000, 1])
+    test.training(["Defeated Chuck Norris", 500, 1])
     print('*'*50)
     print(test.level)
     print(test.experience)
     print(test.rank)
     print(test.achievements)
+    print(test.battle(2))
+    print('*' * 50)
+    print(test.level)
+    print(test.experience)
+    print(test.rank)
+    # test.training(["Defeated Bruce Li", 1000, 7])
+    # print('*' * 50)
+    # print(test.level)
+    # print(test.experience)
+    # print(test.rank)
+    # print(test.achievements)
+    # print(test.battle(3))
+
 
 

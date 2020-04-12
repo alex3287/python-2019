@@ -22,7 +22,7 @@ def filter(D1,D2):
             else:
                 D[i + '='] = D2[i]
     for j in D1.keys():
-        if j+'=' not in D and j+'1' not in D and j+'2' not in D and D1[j] > 1:
+         if j+'=' not in D and j+'1' not in D and j+'2' not in D and D1[j] > 1:
             D[j + '1'] = D1[j]
     for k in D2.keys():
         if k+'=' not in D and k+'1' not in D and k+'2' not in D and D2[k] > 1:
